@@ -1,7 +1,8 @@
-package com.sandystudios.weatherapp
+package com.sandystudios.weatherapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sandystudios.weatherapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
