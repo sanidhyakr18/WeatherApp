@@ -44,12 +44,12 @@ class HomeFragment : Fragment() {
             }
         })
     }
-    override fun onStart() {
-        super.onStart()
-        invokeLocationAction()
-    }
+//    override fun onStart() {
+//        super.onStart()
+//
+//    }
 
-    private fun invokeLocationAction() {
+     private fun invokeLocationAction() {
         when {
             allPermissionsGranted() -> {
                 viewModel.getLocationLiveData().observeOnce(
@@ -99,11 +99,15 @@ class HomeFragment : Fragment() {
         return view;
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        invokeLocationAction()
+        super.onViewCreated(view, savedInstanceState)
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
