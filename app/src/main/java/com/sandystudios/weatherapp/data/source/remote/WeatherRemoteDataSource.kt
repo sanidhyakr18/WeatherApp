@@ -6,9 +6,9 @@ import com.sandystudios.weatherapp.data.model.NetworkWeatherForecast
 import com.sandystudios.weatherapp.utils.Result
 
 interface WeatherRemoteDataSource {
+    suspend fun getSearchWeather(query: String): Result<NetworkWeather>
+
     suspend fun getWeather(location: LocationModel): Result<NetworkWeather>
 
     suspend fun getWeatherForecast(cityId: Int): Result<List<NetworkWeatherForecast>>
-
-    suspend fun getSearchWeather(query: String): Result<NetworkWeather>
 }
