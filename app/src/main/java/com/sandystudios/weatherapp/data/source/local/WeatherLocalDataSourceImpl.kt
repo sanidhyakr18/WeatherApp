@@ -11,7 +11,7 @@ class WeatherLocalDataSourceImpl(
     private val weatherDao: WeatherDao,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : WeatherLocalDataSource {
-    override suspend fun getWeather(): DBWeather? = withContext(ioDispatcher) {
+    override suspend fun getWeather(): DBWeather = withContext(ioDispatcher) {
         return@withContext weatherDao.getWeather()
     }
 
@@ -23,7 +23,7 @@ class WeatherLocalDataSourceImpl(
         weatherDao.deleteAllWeather()
     }
 
-    override suspend fun getForecastWeather(): List<DBWeatherForecast>? =
+    override suspend fun getForecastWeather(): List<DBWeatherForecast> =
         withContext(ioDispatcher) {
             return@withContext weatherDao.getAllWeatherForecast()
         }
